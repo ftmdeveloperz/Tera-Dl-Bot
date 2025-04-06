@@ -162,3 +162,4 @@ async def upload_video(client, file_path, thumbnail_path, video_title, reply_msg
         logging.error(f"Upload failed: {e}")
         await reply_msg.edit_text("❌ Upload failed. Please try again later.")
         return None
+

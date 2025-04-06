@@ -24,7 +24,7 @@ load_dotenv('config.env', override=True)
 
 logging.basicConfig(level=logging.INFO)
 
-ADMINS = list(map(int, os.environ.get('ADMINS', '6695586027').split()))
+ADMINS = list(map(int, os.environ.get('ADMINS', '7744665378').split()))
 if not ADMINS:
     logging.error("ADMINS variable is missing! Exiting now")
     exit(1)
@@ -43,14 +43,14 @@ bot_token = os.environ.get('BOT_TOKEN', '')
 if not bot_token:
     logging.error("BOT_TOKEN variable is missing! Exiting now")
     exit(1)
-dump_id = os.environ.get('DUMP_CHAT_ID', '')
+dump_id = os.environ.get('DUMP_CHAT_ID', '-1002503587738')
 if not dump_id:
     logging.error("DUMP_CHAT_ID variable is missing! Exiting now")
     exit(1)
 else:
     dump_id = int(dump_id)
 
-fsub_id = os.environ.get('FSUB_ID', '')
+fsub_id = os.environ.get('FSUB_ID', '-1002503587738')
 if not fsub_id:
     logging.error("FSUB_ID variable is missing! Exiting now")
     exit(1)
@@ -179,7 +179,7 @@ async def start_command(client, message):
         if IS_VERIFY:
             token = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
             logging.info(f"Generated token: {token}")
-            link = await get_shortlink(SHORTLINK_URL, SHORTLINK_API, f'https://t.me/ftmbotzx_teradl?start=verify_{token}')
+            link = await get_shortlink(SHORTLINK_URL, SHORTLINK_API, f'https://t.me/ftmbotzx_teradlbot?start=verify_{token}')
             await db_update_verify_status(user_id, {**verify_status, 'verify_token': token, 'link': link})
             message_text = (
                 "Your ads token has expired. Please refresh your token and try again.\n\n"
@@ -188,7 +188,7 @@ async def start_command(client, message):
                 "This is an ads token. If you pass 1 ad, you can use the bot for 12 hours after passing the ad.\n\n"
             )
             token_button = InlineKeyboardButton("Get Token", url=link)
-            tutorial_button = InlineKeyboardButton("How to Verify", url="https://t.me/ultroid_official/18")
+            tutorial_button = InlineKeyboardButton("How to Verify", url="https://t.me/logfor_ftm_teradl/5")
             reply_markup = InlineKeyboardMarkup([[token_button], [tutorial_button]])
             await message.reply_text(message_text, reply_markup=reply_markup)
         else:

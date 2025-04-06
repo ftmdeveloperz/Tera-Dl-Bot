@@ -51,3 +51,4 @@ async def full_userbase():
 # Delete a user from the database
 async def del_user(user_id: int):
     await user_data.delete_one({'_id': user_id})
+

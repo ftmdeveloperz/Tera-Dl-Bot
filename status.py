@@ -32,3 +32,4 @@ def format_progress_bar(filename, percentage, done, total_size, status, eta, spe
         f"┠ sᴘᴇᴇᴅ: {format_size(speed)}/s\n"
         f"┖ ᴜsᴇʀ: {user_mention} | ɪᴅ: {user_id}" 
     )
+    
